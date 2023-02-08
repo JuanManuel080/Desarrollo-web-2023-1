@@ -1,0 +1,46 @@
+:root{
+
+    --white: #fff;
+    --blue: #81f5ff;
+    --red: rgb(245, 10, 10);
+}
+
+body{
+    margin: 0;
+    background-color: var(--blue);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+.contenedorPrincipal{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-around;
+}
+
+.Contenedor1{
+
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    background-color: var(--white);
+
+    border: 2px solid salmon;
+
+}
+
+.Contenedor2{
+    
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: stretch;
+
+
+}
+
+.l{
+    display: flex;
+    background-color: var(--red);
+    border-radius: 50%;
+}
