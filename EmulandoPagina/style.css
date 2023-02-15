@@ -1,0 +1,31 @@
+
+
+.head{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.head a{
+    text-decoration: none;
+
+}
+
+.navHead a{
+    padding: 12px;
+    color: #9698a6;
+
+}
+
+#btnRequest{
+    align-items: right;
+   /* color: #FFFBEF;*/
+   padding: 0.875rem 2.1875rem;
+   border-radius: 50px;
+   background-image: linear-gradient(to right, #31d35c, #2bb7da);
+   background-color: rgba(255, 255, 255, 0.25);
+    
+}
+
+.main{
+    background-color: #FAFAFA;
+}
