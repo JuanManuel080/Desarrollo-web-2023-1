@@ -90,57 +90,117 @@ console.log(gato);
  */
 
 
+// 1.
+let JuanJo = {
+    nombre: "Juan Jose",
+    CC: 102040,
+    direccion: "Bello",
+
+    materia: {
+        nombreMateria: "Ingles",
+        codigoMateria: 78910,
+    },
+
+    nota: {
+    },
+
+    informacionEst:function(){
+        return `Estudiante: ${this.nombre}` + `\n` +
+        `C.C: ${this.CC}` + `\n` +
+        `direccion: ${this.direccion}` + `\n`;
+    },
+
+    informacionMat:function(){
+        return `Nombre de materia: ${this.materia.nombreMateria}` + `\n` +
+        `Codigo de materia: ${this.materia.codigoMateria}` + `\n`;
+    },  
+
+    promedioNota:function(nota){
+        let notaFinal = 2;
+        for (let i = 0; i < nota.Length; i++) {
+            if(i < nota.Length)
+            notaFinal =  nota[i] + nota[i + 1];
+        }
+        notaFinal /= nota.Length;
+
+        return notaFinal;
+    }
+
+};
+
+console.log(JuanJo.informacionEst());
+console.log(JuanJo.informacionMat());
+console.log(`El promedio del estudiante ${JuanJo.nombre} en la materia ${JuanJo.materia.nombreMateria} es: ${JuanJo.promedioNota([5.0,3.5,4.8,5.0])}`);
 
     
 // 2.
-class PersonaUniversidad{
+class universidad{
 
-    constructor(nombre, documento, genero){
+    constructor(nombre, direccion, codigo ){
         this.nombre = nombre;
-        this.documento = documento;
-        this.genero = genero;
+        this.direccion = direccion;
+        this.codigo = codigo;
     }
 
     informacion(){
         return `Nombre:${this.nombre}` + `\n` 
-                + `documento:${this.documento}` + `\n`
-                + `genero:${this.genero}` + `\n`
+                + `Direccion:${this.direccion}` + `\n`
+                + `Codigo:${this.codigo}` + `\n`
     }
 }
 
-class Docente extends PersonaUniversidad{
-    constructor(nombre, documento, genero, materia, bloque ){
-        super(nombre, documento, genero)
+class Docente extends universidad{
+    constructor(nombre, direccion, codigo, genero, materia, bloque ){
+        super(nombre, direccion, codigo);
+        this.genero = genero;
         this.materia = materia;
         this.bloque = bloque;
     }
 
     informacion(){
-        return super.informacion() + `materia:${this.materia}` + `\n`
-               + `bloque:${this.materia}`
+        return super.informacion() + `genero:${this.genero}` + `\n`
+               + `materia:${this.materia}` + `\n`+ `bloque:${this.bloque}` + `\n`
+               
     }
 }
 
 
-class Estudiante extends PersonaUniversidad{
-    constructor(nombre, documento, genero, grado, promedio ){
-        super(nombre, documento, genero);
+class Estudiante extends universidad{
+    constructor(nombre, direccion, codigo, genero, grado ){
+        super(nombre, direccion, codigo);
+        this.genero = genero;
         this.grado = grado;
-        this.promedio = promedio
     }
 
     informacion(){
-        return super.informacion() + `grado:${this.grado}` + `\n`
-               + `promedio:${this.promedio}`
+        return super.informacion() + `Genero:${this.genero}` + `\n`
+               + `Grado:${this.grado}`
     }
 }
     
 
-const JuanCardona = new Docente("JuanManuel", 11102, "M", "Calculo Diferencial", 12);
+const JuanCardona = new Docente("JuanManuel", "Bello", 11102, "M", "Calculo Diferencial", 12);
 
-const CarlosCantor = new Estudiante("CarlosCantor",10204, "F", 11, 1.2);
+const CarlosCantor = new Estudiante("CarlosCantor","Medellin", 10204, "F", 11);
 
 
 console.log(JuanCardona.informacion());
 
 console.log(CarlosCantor.informacion());
+
+
+
+//3.
+
+const newAcademy = (docente, estudiante) =>{
+    const learnFrench = new universidad("NewFrench", "Itagui", 1234);
+    return [learnFrench,docente,estudiante]
+}
+
+
+const Miguel = new Docente("Miguelito","Envigado", 473892, "F", "Calculo Diferencial", 12);
+
+
+console.log(newAcademy(Miguel,JuanJo)[0].informacion());
+console.log(newAcademy(Miguel,JuanJo)[1].informacion());
+console.log(newAcademy(Miguel,JuanJo)[2].informacionEst());
