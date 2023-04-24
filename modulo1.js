@@ -1,10 +1,37 @@
-//Modulos en javascript
+export class Trabajador{
+    constructor(nombre,apellido,edad,documento,sueldo){
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.edad = edad;
+        this.documento = documento;
+        this.sueldo = sueldo;
+    }
+}
 
-import {sumar} from './modulo2.js'
+export class Doctor extends Trabajador{
+    constructor(nombre,apellido,edad,documento,sueldo, areaTrabajo, especialidad, experiencia, ganancia){
+        super(nombre,apellido,edad,documento,sueldo)
+        this.areaTrabajo = areaTrabajo;
+        this.especialidad = especialidad;
+        this.experiencia = experiencia;
+        this.ganancia = ganancia;
+    }
 
-const saludar = (nombre,apellido) =>{
-    return `Hola ${nombre} ${apellido}, cuenta con ${sumar(3,5)} vidas`;
+    calcularSalario(ganancia,sueldo){
+        return (parseInt(ganancia)/100) * sueldo 
+    }
 }
 
 
-console.log(saludar("juan","cardona"));
+export const Paciente = {
+    motivoConsulta: 'Pediatria',
+    enfermedades: 'Alergia',
+    consultorio: 'd1',
+
+    infoPersonal: {
+        nombre: 'Camilo',
+        edad: '3',
+        genero: 'Masculino',
+        eps: 'No tinene'
+    }    
+}
